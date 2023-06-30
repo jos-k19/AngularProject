@@ -23,7 +23,7 @@
       </div>
 
       
-      <h3>{{listFilter}}</h3>
+      <!-- <h3>{{listFilter}}</h3> -->
 
       <div class='table-responsive'>
         <table class='table'
@@ -47,7 +47,7 @@
 
 
           <tbody>
-            <tr *ngFor='let product of products'>
+            <tr *ngFor='let product of filteredProducts'>
               <td>
                 <img *ngIf='showImage'
                      [src]='product.imageUrl'
@@ -62,18 +62,15 @@
                 {{ product.productName }}
               </td>
               <td>
-                <!-- {{ product.productCode | lowercase | convertToSpaces:'-' }} -->
-
-                {{product.productCode}}
+                {{ product.productCode | lowercase | convertToSpaces:'-' }}
               </td>
               <td>{{ product.releaseDate }}</td>
               <td>{{ product.price  }}</td>
               <td>
 
-                {{product.starRating}}
-                <!-- <pm-star [rating]='product.starRating'
+                <pm-star [rating]='product.starRating'
                          (ratingClicked)='onRatingClicked($event)'>
-                </pm-star> -->
+                </pm-star>
               </td>
             </tr>
           </tbody>
